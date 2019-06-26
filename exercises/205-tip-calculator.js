@@ -11,6 +11,18 @@
 // tipAmount(40, 'fair') --> 6
 
 
+function tipAmount(amount, service){
+    let typeOfService = {
+        good: .20,
+        fair: .15,
+        poor: .10
+    }
+
+    let tip = (amount * (typeOfService[service]))
+    return tip;
+    
+}
+
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "totalAmount" that takes the same arguments as "tipAmount"
@@ -21,7 +33,18 @@
 // totalAmount(100, 'good') --> 120
 // totalAmount(40, 'fair') --> 46
 
+function totalAmount(amount, service){
+    let typeOfService = {
+        good: .20,
+        fair: .15,
+        poor: .10
+    }
 
+   let tip = (amount * (typeOfService[service]))
+   let total = amount + tip;
+   return total;
+    
+}
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "splitAmount" that takes a bill amount, the level of service,
@@ -31,3 +54,17 @@
 // Examples:
 // splitAmount(100, 'good', 5) --> 24
 // splitAmount(40, 'fair', 2) --> 23
+
+function splitAmount(amount, service, people){
+    let typeOfService = {
+        good: .20,
+        fair: .15,
+        poor: .10
+    }
+
+   let tip = (amount * (typeOfService[service]))
+   let total = amount + tip;
+   let splitTotal = total/people;
+   return splitTotal;
+
+}
