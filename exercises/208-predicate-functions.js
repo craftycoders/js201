@@ -11,6 +11,21 @@
 // Write a function "isVowel" that takes a character (i.e. a string of length 1)
 // as input and returns true if it is a vowel, false otherwise.
 //
+function isVowel(char){
+    //char = char.toLowerCase();
+    if (char.length > 1){
+        return false;
+    } else if (char === "a"||char === "e"||char === "i"||char === "o"||char === "u"||char === "A"||char === "E"||char === "I"||char === "O"||char === "U") {
+       return true;
+    }   else {
+        return false;
+    }
+
+    // if (char.toLowerCase().length() === 1){
+    // return (char === "a"||char === "e"||char === "i"||char === "o"||char === "u" ? true :  false);
+    // }
+    // return false;      
+}
 // Useful resource:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 //
@@ -37,7 +52,13 @@
 // isOdd('7') --> false
 // isOdd(3.14) --> false
 
+function isEven(num){
+    return (num % 2 === 0 ? true : false)
+}
 
+function isOdd(num){
+    return (num % 2 !== 0 && Number.isInteger(num) ? true : false)
+}
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "isCapitalCity" that takes two arguments: a US state and a city name
@@ -52,3 +73,65 @@
 // isCapitalCity('Texas', 'Houston') --> false
 // isCapitalCity('Alaska', 'Juneau') --> true
 // isCapitalCity('Strawberry', 'Mango') --> false
+
+function isCapitalCity(state, city){
+    let capitals = {
+        Alabama: 'Montgomery',
+        Montana: 'Helena',
+        Alaska:	'Juneau',	
+        Nebraska: 'Lincoln',
+        Arizona: 'Phoenix',	
+        Nevada:	'Carson City',
+        Arkansas: 'Little Rock',	
+        'New Hampshire': 'Concord',
+        California:	'Sacramento',	
+        'New Jersey': 'Trenton',
+        Colorado: 'Denver',	
+        'New Mexico': 'Santa Fe',
+        Connecticut: 'Hartford',	
+        'New York': 'Albany',
+        Delaware: 'Dover',	
+        'North Carolina': 'Raleigh',
+        Florida: 'Tallahassee',	
+        'North Dakota': 'Bismarck',
+        Georgia: 'Atlanta',	
+        Ohio: 'Columbus',
+        Hawaii:	'Honolulu',	
+        Oklahoma: 'Oklahoma City',
+        Idaho: 'Boise',	
+        Oregon:	'Salem',
+        Illinois: 'Springfield',	
+        Pennsylvania: 'Harrisburg',
+        Indiana: 'Indianapolis',	
+        'Rhode Island': 'Providence',
+        Iowa: 'Des Moines',	
+        'South Carolina': 'Columbia',
+        Kansas:	'Topeka',	
+        'South Dakota': 'Pierre',
+        Kentucky: 'Frankfort',	
+        Tennessee: 'Nashville',
+        Louisiana: 'Baton Rouge',
+        Texas: 'Austin',
+        Maine: 'Augusta',
+        Utah: 'Salt Lake City',
+        Maryland: 'Annapolis',	
+        Vermont: 'Montpelier',
+        Massachusetts: 'Boston',	
+        Virginia: 'Richmond',
+        Michigan: 'Lansing',	
+        Washington:	'Olympia',
+        Minnesota:	'St. Paul',	
+        'West Virginia': 'Charleston',
+        Mississippi: 'Jackson',	
+        Wisconsin: 'Madison',
+        Missouri: 'Jefferson City',	
+        Wyoming: 'Cheyenne'
+    };
+
+    if (!(capitals.hasOwnProperty(state))) {
+        return false;
+    } else if (capitals[state] === city){
+        return true;
+    } 
+    return false;
+} 
