@@ -6,11 +6,10 @@
 // numberJoinerWhile(12, 14) --> '12_13_14'
 
 function numberJoinerWhile(startNum, endNum){
-    let counter = startNum
     let str= ''
-    while (counter <= endNum){
-        str = str + counter + "_"
-        counter ++
+    while (startNum <= endNum){
+        str += startNum + "_"
+        startNum ++
     }
     return str.slice(0, -1);
 }
@@ -21,7 +20,7 @@ function numberJoinerWhile(startNum, endNum){
 function numberJoinerFor(startNum, endNum){
     let str = ''
     for (let idx = startNum; idx <= endNum; idx++){
-        str = str + idx + "_";
+        str += idx + "_";
     }
     return str.slice(0, -1);
 }
