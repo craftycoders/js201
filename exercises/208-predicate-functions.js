@@ -53,7 +53,7 @@ function isVowel(char){
 // isOdd(3.14) --> false
 
 function isEven(num){
-    return (num % 2 === 0 ? true : false)
+    return (num % 2 === 0 && Number.isInteger(num) ? true : false)
 }
 
 function isOdd(num){

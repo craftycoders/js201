@@ -34,14 +34,14 @@ function tipAmount(amount, service){
 // totalAmount(40, 'fair') --> 46
 
 function totalAmount(amount, service){
-    let typeOfService = {
-        good: .20,
-        fair: .15,
-        poor: .10
-    }
+    // let typeOfService = {
+    //     good: .20,
+    //     fair: .15,
+    //     poor: .10
+    // }
 
-   let tip = (amount * (typeOfService[service]))
-   let total = amount + tip;
+   //let tip = (amount * (typeOfService[service]))
+   let total = amount + tipAmount(amount, service)
    return total;
     
 }
@@ -56,15 +56,15 @@ function totalAmount(amount, service){
 // splitAmount(40, 'fair', 2) --> 23
 
 function splitAmount(amount, service, people){
-    let typeOfService = {
-        good: .20,
-        fair: .15,
-        poor: .10
-    }
+//     let typeOfService = {
+//         good: .20,
+//         fair: .15,
+//         poor: .10
+//     }
 
-   let tip = (amount * (typeOfService[service]))
-   let total = amount + tip;
-   let splitTotal = total/people;
+//    let tip = (amount * (typeOfService[service]))
+//    let total = amount + tip;
+   let splitTotal = totalAmount(amount, service)/people;
    return splitTotal;
 
 }
