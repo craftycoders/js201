@@ -10,23 +10,14 @@
 // fizzbuzz(3) --> '..fizz'
 // fizzbuzz(15) --> '..fizz.buzzfizz..fizzbuzz.fizz..fizzbuzz'
 
+
+
 function fizzbuzz(num){
-      let strArr=[];
       let str='';
-
       for (let idx = 1; idx <= num; idx++){
-        if (idx % 3 !== 0 && idx % 5 !== 0) {
-            strArr.push('.')
-        } else if (idx % 3 === 0 && idx % 5 !== 0){
-            strArr.push('fizz')
-        } else if (idx % 5 === 0 && idx % 3 !== 0){
-            strArr.push('buzz')
-        } else {
-            strArr.push('fizzbuzz')
-        }
+        if (idx % 3 !== 0 && idx % 5 !== 0) {str += '.'}  
+        if (idx % 3 === 0){str += 'fizz'} 
+        if (idx % 5 === 0){str += 'buzz'}
       }
-
-      str = strArr.join('')
-    return str;
-    
+    return str;   
 }
