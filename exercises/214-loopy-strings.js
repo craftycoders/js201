@@ -40,22 +40,18 @@
 // nicer('mom get the heck in here and bring me a darn sandwich.')
 // > 'mom get the in here and bring me a sandwich.'
 
+
+
 function nicer(sentence){
     let sentenceArr = sentence.split(' ');
-    //let cleanSentenceArr = []
-    //console.log(sentenceArr);
+    let cleanSentenceArr = [];
+    let forbidden = ['heck', 'darn', 'dang', 'crappy']
     sentenceArr.forEach(function(word, idx){
-        //console.log(typeof(word))
-
-        if (word === 'heck' || word === 'darn' || word === 'dang' || word === 'crappy'){
-            console.log(word, idx)
-            sentenceArr.slice(1, 10);
-            console.log(sentenceArr)
-        }
-        
+        if (!(forbidden.includes(word))){
+            cleanSentenceArr.push(word)
+        }       
     })
-    return sentenceArr.join(' ');
-    
+    return cleanSentenceArr.join(' ');    
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -67,8 +63,22 @@ function nicer(sentence){
 // capitalizeAll('hello world') --> 'Hello World'
 // capitalizeAll('every day is like sunday') --> 'Every Day Is Like Sunday'
 
+//** NOT using array **
+function capitalizeAll(sentence){
+    sentence = sentence.replace(sentence[0], sentence[0].toUpperCase()) //captializes first char
+    return sentence.replace(/\s\w/gi, letter => letter.toUpperCase()) //replaces every char after a space
+}
 
-
+//** USING array **
+// function capitalizeAll(sentence){
+//     let sentArr = sentence.split(' ');
+//     let capArr =[];
+//     sentArr.forEach(function(word, idx){
+//         capArr.push(word.replace(word[0], word[0].toUpperCase()))
+//     })
+//     return capArr.join(' ');
+    
+// }
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function called "split" that does the same thing as String.split
 // It should take two inputs: (1) a string and (2) a delimiter string
@@ -79,3 +89,21 @@ function nicer(sentence){
 // split('a-b-c', '-') --> ['a', 'b', 'c']
 // split('APPLExxBANANAxxCHERRY', 'xx') --> ['APPLE', 'BANANA', 'CHERRY']
 // split('xyz', 'r') --> ['xyz']
+
+function split(str, del){
+    let regex = new RegExp(del, 'g');
+    let newStr = (str.replace(regex, ' '))  // replace delimeter with a single character, I used space
+    let arr=[];
+    let splitStr = '';
+  
+    for (let i = 0; i < newStr.length; i++){                //loop through new string
+        if (newStr[i] === ' ' && splitStr !== ''){          //conditional will push a concatenated string once it encounters a space
+            arr.push(splitStr)                             // then it will reset the concatenated string
+            splitStr = '';                                 
+        }
+       if (newStr[i] !== ' '){splitStr += newStr[i];} //if new string char was not a space, concatenate char to string 
+       if (newStr[i] === newStr[newStr.length-1]){arr.push(splitStr)} //if last character is not a space, it will push  split instring into array
+    }
+
+     return arr;    
+    }
