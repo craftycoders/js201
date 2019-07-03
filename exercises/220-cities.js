@@ -10,8 +10,8 @@
 function coolCities(arr){
     let newArr = [];
     arr.forEach(function(val){
-        if(coolCities.temperature > 70){
-            newArr.push(val.name)
+        if(val.temperature < 70){
+            newArr.push(val)
         }
     })
     return newArr;
