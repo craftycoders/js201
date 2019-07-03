@@ -7,9 +7,24 @@
 // ];
 // and returns a new array containing only those cities whose temperature is
 // cooler than 70 degrees.
-
+function coolCities(arr){
+    let newArr = [];
+    arr.forEach(function(val){
+        if(coolCities.temperature > 70){
+            newArr.push(val.name)
+        }
+    })
+    return newArr;
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "cityNames" which takes an array of city objects like the
 // above problem and returns an array of the cities names.
+function cityNames(arr){
+    let cityArr=[]
+    arr.forEach(function(val){
+        cityArr.push(val.name)
+    })
+    return cityArr;
+}
