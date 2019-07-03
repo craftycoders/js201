@@ -65,10 +65,13 @@ function nicer(sentence){
 
 //** NOT using array **
 function capitalizeAll(sentence){
-    sentence = sentence.replace(sentence[0], sentence[0].toUpperCase()) //captializes first char
-    return sentence.replace(/\s\w/gi, letter => letter.toUpperCase()) //replaces every char after a space
+    sentence = sentence.replace(sentence[0], sentence[0].toUpperCase())     //captializes first char
+    return sentence.replace(/\s\w/gi, letter => letter.toUpperCase())       //replaces every char after a space **bind the substring to the function in which it's firing, 'this'**
+    //console.log(sentence.replace(/\s\w/gi, letter => letter.toUpperCase()))
 }
 
+
+//capitalizeAll('hello world patrick chris')
 //** USING array **
 // function capitalizeAll(sentence){
 //     let sentArr = sentence.split(' ');
@@ -96,14 +99,15 @@ function split(str, del){
     let arr=[];
     let splitStr = '';
   
-    for (let i = 0; i < newStr.length; i++){                //loop through new string
-        if (newStr[i] === ' ' && splitStr !== ''){          //conditional will push a concatenated string once it encounters a space
-            arr.push(splitStr)                             // then it will reset the concatenated string
+    for (let i = 0; i < newStr.length; i++){                            //loop through new string
+        if (newStr[i] === ' ' && splitStr !== ''){                      //conditional will push a concatenated string once it encounters a space
+            arr.push(splitStr)                                          // then it will reset the concatenated string
             splitStr = '';                                 
         }
-       if (newStr[i] !== ' '){splitStr += newStr[i];} //if new string char was not a space, concatenate char to string 
-       if (newStr[i] === newStr[newStr.length-1]){arr.push(splitStr)} //if last character is not a space, it will push  split instring into array
+       if (newStr[i] !== ' '){splitStr += newStr[i];}                   //if new string char was not a space, concatenate char to string 
+       if (newStr[i] === newStr[newStr.length-1]){arr.push(splitStr)}   //if last character is not a space, it will push  split instring into array
     }
 
      return arr;    
     }
+

@@ -16,19 +16,21 @@ function max(arr){
 // the sum of the numbers.
 // Example:
 // sumNumbers([1, 4, 8]) --> 13
-// function sumNumbers(arr){
-//     let sum = 0;
-//     arr.forEach(function(idx){
-//         sum += arr[idx];
-//     })
-//     return sum;
-// }
 function sumNumbers(arr){
     let sum = 0;
-    for (let idx=0; idx < arr.length; idx++){sum += arr[idx];
-    }
+    arr.forEach(function(value){ //value is each element in the array
+        sum += value;
+    })
     return sum;
 }
+
+//*for loop way*
+// function sumNumbers(arr){
+//     let sum = 0;
+//     for (let idx=0; idx < arr.length; idx++){sum += arr[idx];
+//     }
+//     return sum;
+// }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "positives" which is given an array of numbers and
@@ -39,11 +41,19 @@ function sumNumbers(arr){
 // positives([-1, -2, -3]) --> []
 function positives(arr){
     let posArr = []
-    for (let idx = 0; idx < arr.length; idx++){
-        if (arr[idx] > 0){ posArr.push(arr[idx])}
-    }
+    arr.forEach(function(num){
+        if (num > 0){posArr.push(num)}})
     return posArr;
 }
+
+//*for loop way*
+// function positives(arr){
+//     let posArr = []
+//     for (let idx = 0; idx < arr.length; idx++){
+//         if (arr[idx] > 0){ posArr.push(arr[idx])}
+//     }
+//     return posArr;
+// }
 
 
 
@@ -51,13 +61,23 @@ function positives(arr){
 // Write a function "evens" which takes an array of numbers and returns a new
 // array containing only the even numbers in the given array.
 // Hint: you may want to re-use your "isEven" function from 01-predicate-functions.js
+
 function evens(arr){
     let evenArr = []
-    for (let idx = 0; idx < arr.length; idx++){
-        if (arr[idx] % 2 === 0){evenArr.push(arr[idx])}
-    }
+    arr.forEach(function(val){
+        if (val % 2 === 0) {evenArr.push(val)}
+    })
     return evenArr;
 }
+
+//*for loop way*
+// function evens(arr){
+//     let evenArr = []
+//     for (let idx = 0; idx < arr.length; idx++){
+//         if (arr[idx] % 2 === 0){evenArr.push(arr[idx])}
+//     }
+//     return evenArr;
+// }
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
