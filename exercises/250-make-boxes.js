@@ -8,8 +8,15 @@
 // *****
 // *****
 
-function makeSquare() {
-    
+function makeSquare(num) {
+    let square = '';
+    for(let i=0; i<num; i++){
+        for(let j=0; j<num; j++){
+            square += ('*')
+        }
+        if(i < num-1){square += '\n'}
+    }
+    return square;
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -22,7 +29,27 @@ function makeSquare() {
 // *    *
 // ******
 
-function makeBox() {
+// MY NOTES
+//i = 0 j = 0 to width   ******
+//i = 1 j = 1 *  j-... = ' '  j = width *
+//i = height j = to width *****
+//return asterisk when heightIndex = 0 or height -1, when widthIndex = 0 or width -1
+//all other times, return space
+
+
+function makeBox(width, height) {
+    let box = '';
+   
+    for (let heightIndex = 0; heightIndex < height; heightIndex++){
+        for(let widthIndex = 0; widthIndex < width; widthIndex++){
+            if (heightIndex === 0 || heightIndex === height-1 || widthIndex === 0 || widthIndex === width-1)
+                {box += '*'}
+            else
+                {box += ' '}
+        }
+        if(heightIndex < height-1){box += '\n'}
+    }
+    return box;
 
 }
 
@@ -37,6 +64,10 @@ function makeBox() {
 // * Welcome to DigitalCrafts *
 // ****************************
 
-function makeBanner() {
-
+function makeBanner(str) {
+    let banner = '';
+    banner += '*'.repeat((str.length)+4) + '\n';  //top border & go to new line
+    banner += `* ${str} *` + '\n';                // * text *
+    banner += '*'.repeat((str.length)+4);         //bottom border
+    return banner;
 }
