@@ -51,14 +51,14 @@ function matrixMultiply(arr1, arr2){
     for(i=0; i<2; i++){
         for(arr1Idx=0; arr1Idx<arr1.length; arr1Idx++ ){
             if(i === 0){ 
-                firstMultArr.push(arr1[i][arr1Idx] + arr2[i][arr1Idx]);     
+                firstMultArr.push(arr1[i][arr1Idx] * arr2[i][arr1Idx]);     
             }
             else {
-                secondMultArr.push(arr1[i][arr1Idx] + arr2[i][arr1Idx]);
+                secondMultArr.push(arr1[i][arr1Idx] * arr2[i][arr1Idx]);
             }   
         }     
     }
-    totalArr.push(firstSumArr);
-    totalArr.push(secondSumArr)   
+    totalArr.push(firstMultArr);
+    totalArr.push(secondMultArr);  
     return totalArr;    
 }
